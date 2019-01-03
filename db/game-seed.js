@@ -1,5 +1,6 @@
 const mongoose = require('./connection')
 const fetch = require('node-fetch')
+require('dotenv').config()
 
 async function fetchGames() {
   console.log(process.env.FOOTBALL_DATA_KEY)
@@ -12,7 +13,7 @@ async function fetchGames() {
     }
   )
   let json = await data.json()
-  console.log(json)
+  console.log(json.matches[0])
 }
 
 fetchGames()
