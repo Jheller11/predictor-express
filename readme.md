@@ -27,7 +27,11 @@
 
 ### Authentication Strategy
 
+1. https://auth0.com/docs/quickstart/webapp/nodejs
+
 ### Data Source for Games
+
+1. https://www.football-data.org/
 
 ### Deployed Application
 

@@ -3,6 +3,7 @@ const app = require('express')()
 const parser = require('body-parser')
 const cors = require('cors')
 const helmet = require('helmet')
+require('dotenv').config()
 
 // import controllers
 
