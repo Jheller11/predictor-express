@@ -1,9 +1,9 @@
 const mongoose = require('./connection')
 const fetch = require('node-fetch')
 require('dotenv').config()
+// import game model
 
 async function fetchGames() {
-  console.log(process.env.FOOTBALL_DATA_KEY)
   let data = await fetch(
     'http://api.football-data.org/v2/competitions/2021/matches',
     {
@@ -13,7 +13,9 @@ async function fetchGames() {
     }
   )
   let json = await data.json()
-  console.log(json.matches[0])
+  json.matches.forEach(match => {
+    //   save match to db based on game model (see game.json for match data format)
+  })
 }
 
 fetchGames()

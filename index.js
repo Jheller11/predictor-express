@@ -24,5 +24,3 @@ app.set('port', 3001)
 app.listen(app.get('port'), () => {
   console.log(`App running on port: ${app.get('port')}`)
 })
-
-console.log(process.env.FOOTBALL_DATA_KEY)
