@@ -24,12 +24,16 @@ const gameSchema = new mongoose.Schema({
       required: true
     },
     score: {
-      type: Number,
+      type: Number
+    }
+  },
+  awayTeam: {
+    name: {
+      type: String,
       required: true
     },
-    winner: {
-      type: Boolean,
-      required: true
+    score: {
+      type: Number
     }
   }
 })

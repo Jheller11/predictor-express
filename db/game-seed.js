@@ -2,6 +2,7 @@ const mongoose = require('./connection')
 const fetch = require('node-fetch')
 require('dotenv').config()
 // import game model
+const Game = require('../models/Game')
 
 async function fetchGames() {
   let data = await fetch(
@@ -13,8 +14,30 @@ async function fetchGames() {
     }
   )
   let json = await data.json()
+  Game.deleteMany({}).then(() => {
+    console.log('Games deleted.')
+  })
   json.matches.forEach(match => {
-    //   save match to db based on game model (see game.json for match data format)
+    Game.create({
+      id: match.id,
+      date: match.utcDate,
+      matchday: match.matchday,
+      status: match.status,
+      homeTeam: {
+        name: match.homeTeam.name,
+        score: match.score.fullTime.homeTeam
+      },
+      awayTeam: {
+        name: match.awayTeam.name,
+        score: match.score.fullTime.awayTeam
+      }
+    })
+      .then(game => {
+        console.log(`Game ${game.id} saved to DB.`)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   })
 }
 
