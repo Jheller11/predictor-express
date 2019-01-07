@@ -6,12 +6,15 @@ const helmet = require('helmet')
 require('dotenv').config()
 
 // import controllers
+const GameController = require('./controllers/games')
 
 // config middleware
 app.use(helmet())
 app.use(cors())
 app.use(parser.json())
 app.use(parser.urlencoded({ extended: true }))
+
+app.use('/games', GameController)
 
 // test route
 app.get('/', (req, res) => {

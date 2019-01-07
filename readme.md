@@ -8,10 +8,8 @@
         c. Log out ('/users/logout')
         d. Get user ('/users/:id')
 
-    2. Predictions:
-        a. Submit predictions ('/games/new')
-        b. Update predictions ('/games/update')
-        c. View Predictions ('/games/')
+    2. Games:
+        c. View Games ('/games/')
 
     3. Admin:
         a. build out admin section
